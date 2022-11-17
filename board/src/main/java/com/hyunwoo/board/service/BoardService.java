@@ -20,11 +20,13 @@ import java.util.Optional;
 public class BoardService {
     private BoardRepository boardRepository;
 
-    // 게시글 추가(저장)
+    // 게시글 추가 및 수정(저장)
     @Transactional  // 이전상태로 돌릴 수 있는 어노테이션
     public Long savePost(BoardDto boardDto) {
+        // DB에 저장하기 위해 toEntity메서드를 통해 dto로 받은 데이터를 conversion하는 메서드
         return boardRepository.save(boardDto.toEntity()).getId();   // JpaRepository에 정의된 메서드로, DB에 INSERT, UPDATE를 담당
     } 
+    
     // 게시글 가져오기 index를 가져옴
     @Transactional
     public BoardDto getPost(Long id) {

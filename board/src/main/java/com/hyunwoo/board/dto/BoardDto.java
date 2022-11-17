@@ -17,6 +17,7 @@ public class BoardDto {
     private LocalDateTime createdDate;
     private LocalDateTime modifiedDate;
 
+    // 게시글 추가 및 수정할 때 dto로 받은 데이터를 Entity로 바꿔주는(conversion) 메서드
     public BoardEntity toEntity(){
         BoardEntity boardEntity = BoardEntity.builder()
                 .id(id)
